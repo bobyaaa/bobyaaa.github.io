@@ -1,0 +1,44 @@
+body {
+	margin: 0;
+	cursor: none;
+}
+
+canvas {
+	float: left; 
+	background-color: #0f0f0f;  
+}
+
+a {
+	text-decoration: none; 
+}
+
+.glasspane {
+    position: absolute;
+    left: 50%; 
+    top: 50%;
+}
+
+.noselect {
+	user-select: none; 
+}
+
+.enter {
+	position: relative; 
+	left: -50%; 
+	top: -50%; 
+
+	border: 1px solid white;
+	border-radius: 5px;
+	padding: 10px 20px 10px 20px;
+	color: white; 
+	font-size: 80px;
+	font-family: 'raleway';
+
+	-webkit-box-shadow: 0px 0px 100px 100px;
+	-moz-box-shadow: 0px 0px 100px 100px;
+	box-shadow: 0px 0px 100px 100px;
+}
+
+.glow {
+	text-shadow: 0 0 5px white;
+}
