@@ -131,20 +131,22 @@ var colors = ["#FDFFFC", "#2EC4B6", "#E71D36", "#FF9F1C"];
 var circ = [];
 var circ1 = [];
 
-for (var i = 0; i < 55; i++) {
+for (var i = 0; i < 35; i++) {
 	var dx = (Math.random() - 0.5) * 3;
 	var dy = (Math.random() - 0.85) * 3;
-	var radius = 30;
+	var radius = 25;
 	var dr = (Math.random() + 0.5) * 0.5;
 	var color = colors[Math.floor(Math.random() * 4)];
 	circ.push(new Circle(-100, -100, dx, dy, radius, dr, color));
+}
 
+for (var i = 0; i < 70; i++) {
 	var dx = (Math.random() - 0.5) * 3;
-	var dy = (Math.random() - 0.85) * 3;
+	var dy = (Math.random() - 0.5) * 3;
 	var radius = 30;
 	var dr = (Math.random() + 0.5) * 0.5;
 	var color = colors[Math.floor(Math.random() * 4)];
-	var y = 150 + (Math.random() - 0.5) * 20;
+	var y = (Math.random() - 0.5) * 20;
 	var x = (Math.random() - 0.5) * 300;
 	circ1.push(new Circle1(window.innerWidth/2 + x, window.innerHeight/2 + y, dx, dy, radius, dr, color));
 }
@@ -155,9 +157,12 @@ function animate() {
 	requestAnimationFrame(animate);
 	c.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
-	for (var i = 0; i < 55; i++) {
+	for (var i = 0; i < 35; i++) {
 		circ[i].update();
-		circ1[i].update();  
+	}
+
+	for (var i = 0; i < 70; i++) {
+		circ1[i].update();  		
 	}
 
 	cPoint.update();
