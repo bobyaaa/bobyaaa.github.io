@@ -8,11 +8,18 @@ var c = canvas.getContext('2d');
 mouse = {
 	x: undefined,
 	y: undefined }
+
 window.addEventListener('mousemove', function(event) {
 	mouse.x = event.x;
 	mouse.y = event.y;
-	console.log(mouse.x, mouse.y); 
-});/*//////////////// Circle Class //////////////////*/
+});
+
+window.addEventListener('resize', function() {
+	canvas.width = window.innerWidth;
+	canvas.height = window.innerHeight;
+	updateBackgroundCircles();
+});
+/*//////////////// Circle Class //////////////////*/
 
 function Point(x, y, radius, dr) {
 	this.x = x;
@@ -140,15 +147,21 @@ for (var i = 0; i < 35; i++) {
 	circ.push(new Circle(-100, -100, dx, dy, radius, dr, color));
 }
 
-for (var i = 0; i < 70; i++) {
-	var dx = (Math.random() - 0.5) * 3;
-	var dy = (Math.random() - 0.5) * 3;
-	var radius = 30;
-	var dr = (Math.random() + 0.5) * 0.5;
-	var color = colors[Math.floor(Math.random() * 4)];
-	var y = (Math.random() - 0.5) * 20;
-	var x = (Math.random() - 0.5) * 300;
-	circ1.push(new Circle1(window.innerWidth/2 + x, window.innerHeight/2 + y, dx, dy, radius, dr, color));
+updateBackgroundCircles(); 
+
+function updateBackgroundCircles() {
+	circ1 = []
+
+	for (var i = 0; i < 70; i++) {
+		var dx = (Math.random() - 0.5) * 3;
+		var dy = (Math.random() - 0.5) * 3;
+		var radius = 30;
+		var dr = (Math.random() + 0.5) * 0.5;
+		var color = colors[Math.floor(Math.random() * 4)];
+		var y = (Math.random() - 0.5) * 20;
+		var x = (Math.random() - 0.5) * 300;
+		circ1.push(new Circle1(canvas.width/2 + x, canvas.height/2 + y, dx, dy, radius, dr, color));
+	}	
 }
 
 var cPoint = new Point(mouse.x, mouse.y, 5, 0.05); 
@@ -161,7 +174,7 @@ function animate() {
 		circ[i].update();
 	}
 
-	for (var i = 0; i < 70; i++) {
+	for (var i in circ1) {
 		circ1[i].update();  		
 	}
 
