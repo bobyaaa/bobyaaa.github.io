@@ -12,10 +12,20 @@ a {
 	text-decoration: none; 
 }
 
+i {
+	margin: 10px; 
+	cursor: none;
+}
+
+i:hover {
+	color: gray;
+}
+
 .glasspane {
     position: absolute;
+    margin: -60px 0 0 -210px;
     left: 50%; 
-    top: 42%;
+    top: 50%;
 }
 
 .noselect {
@@ -23,10 +33,6 @@ a {
 }
 
 .enter {
-	position: relative; 
-	left: -50%; 
-	top: -42%; 
-
 	border: 1px solid white;
 	border-radius: 5px;
 	padding: 10px 20px 10px 20px;
@@ -36,6 +42,41 @@ a {
 	background-color: #0f0f0f;
 }
 
-.glow {
-	text-shadow: 0 0 5px white;
+.audiocontrols {
+	color: white;
+	text-align: center; 
 }
+
+.glow {
+    animation: addglow 1.0s forwards;
+	-webkit-animation: addglow 1.0s forwards;
+}
+
+.removeglow {
+	animation: removeglow 1.0s forwards;
+	-webkit-animation: removeglow 1.0s forwards;
+}
+
+@-webkit-keyframes addglow {
+    from {text-shadow: 0 0 0px white;}
+    to {text-shadow: 0 0 9px white;}
+}
+
+/* Standard syntax */
+@keyframes addglow {
+    from {text-shadow: 0 0 0px white;}
+    to {text-shadow: 0 0 9px white;}
+}
+
+@-webkit-keyframes removeglow {
+    from {text-shadow: 0 0 9px white;}
+    to {text-shadow: 0 0 0px white;}
+}
+
+/* Standard syntax */
+@keyframes removeglow {
+    from {text-shadow: 0 0 9px white;}
+    to {text-shadow: 0 0 0px white;}
+}
+
+
