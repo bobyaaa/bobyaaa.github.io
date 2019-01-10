@@ -3,24 +3,32 @@ $(document).ready(function() {
 	songindex = 0;
 	var bobyaaa = new Audio('bobyaaa.mp3'); 
 	var playlist = [
-		{ song: 'sundaymorning.mp3', bpm: 88 },
-		{ song: 'DancingIntheMoonlight.mp3', bpm: 136 },
-		{ song: 'IWantYouBack.mp3', bpm: 98 },
-		{ song: 'RippleEffect.mp3', bpm: 87.8 }
+		{ song: 'assets/sundaymorning.mp3', bpm: 88, display: 'Sunday Morning - Maroon 5'},
+		{ song: 'assets/DancingIntheMoonlight.mp3', bpm: 136, display: 'Dancing In the Moonlight - King Harvest' },
+		{ song: 'assets/IWantYouBack.mp3', bpm: 98, display: 'I Want You Back - Jackson 5'},
+		{ song: 'assets/HopelessOpus.mp3', bpm: 139.5, display: 'Hopeless Opus - Imagine Dragons'}, 
+		{ song: 'assets/RippleEffect.mp3', bpm: 87.8, display: 'Ripple Effect - Scott Helman'},
+		{ song: 'assets/bobyaaa.mp3', bpm: 1000, display: 'bobyaaaletsgo.tk'}
 	];
+
 	var audio = new Audio(playlist[songindex].song);
 
 	$("#play").click(function() { 
 
 		if (document.getElementById("play").textContent == "play_arrow") {
-			$("#play").html("replay"); 	
-			audio.play();
-			bobyaaa.play(); 
-		} else {
-			audio.currentTime = 0; 
+			$("#play").html("pause"); 	
 			audio.play(); 
+		} else {
+			audio.pause(); 
+			$("#play").html("play_arrow");
 		}
 		neonflash(playlist[songindex].bpm);
+	});
+
+	$("#replay").click(function() {
+		audio.currentTime = 0;
+		audio.play();
+		$("#play").html("pause"); 
 	});
 
 	$("#volume").click(function() {
@@ -54,7 +62,7 @@ $(document).ready(function() {
 		audio.play(); 
 
 		if (document.getElementById("play").textContent == "play_arrow") {
-			$("#play").html("replay"); 
+			$("#play").html("pause"); 
 			audio.play();
 		} 
 		neonflash(playlist[songindex].bpm); 

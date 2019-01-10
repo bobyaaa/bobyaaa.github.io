@@ -1,6 +1,7 @@
 body {
 	margin: 0;
 	cursor: none;
+	overflow: hidden; 
 }
 
 canvas {
@@ -15,18 +16,24 @@ a {
 i {
 	margin: 10px; 
 	cursor: none;
-	colo: white; 
+	color: white; 
 }
 
 i:hover {
 	color: gray;
 }
 
+
 .glasspane {
     position: absolute;
     margin: -60px 0 0 -210px;
     left: 50%; 
     top: 50%;
+}
+
+.chalkBanner {
+	position: absolute;
+	left: -115px; 
 }
 
 .noselect {
@@ -58,6 +65,25 @@ i:hover {
 	-webkit-animation: removeglow 1.0s forwards;
 }
 
+.bodytext {
+	color: white;
+	font-family: 'Satisfy';
+	font-size: 18px; 
+	margin: 5px; 
+}
+
+.largerfont {
+	font-size: 26px; 
+}
+
+.spacer {
+	height: 30px; 
+}
+
+.smallspacer {
+	height: 15px;
+}
+
 @-webkit-keyframes addglow {
     from {text-shadow: 0 0 0px white;}
     to {text-shadow: 0 0 9px white;}
@@ -78,6 +104,35 @@ i:hover {
 @keyframes removeglow {
     from {text-shadow: 0 0 9px white;}
     to {text-shadow: 0 0 0px white;}
+}
+
+.drag {
+	border-radius: 5px; 
+    position: absolute;
+    width: 340px;
+    left: 38.5px; 
+    z-index: 9;
+    text-align: center;
+}
+
+#mydiv2 {
+	visibility: hidden; 
+}
+
+#mydivheader {
+	border-top-left-radius: 3px; 
+	border-top-right-radius: 3px; 
+	opacity: 0.7;
+    cursor: move;
+    height: 10px; 
+    z-index: 10;
+    background-color: #FDFFFC;
+    color: #fff;
+}
+
+#pointer {
+	cursor: pointer;
+	margin: 5px;
 }
 
 
